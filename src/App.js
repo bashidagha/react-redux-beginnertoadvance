@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import React from "react";
+import {actions} from './store/index'
 
 class App extends React.Component {
 
@@ -20,22 +21,15 @@ class App extends React.Component {
   //you see better approach for this in nexts commits
 
   increament(){
-    this.props.dispatch({
-      type: 'INC'
-    })
+    this.props.dispatch(actions.increament())
   }
 
   decreament(){
-    this.props.dispatch({
-      type: 'DEC'
-    })
+    this.props.dispatch(actions.decreament())
   }
 
   addby(){
-    this.props.dispatch({
-      type: 'ADDBY',
-      payload: { counter: this.state.value }
-    })
+    this.props.dispatch(actions.addby(this.state.value))
   }
 
   handleTextBox(event){
